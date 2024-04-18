@@ -1,12 +1,11 @@
-// server.js
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/userRoutes');
 const cgpaRoutes = require('./routes/cgpaRoutes');
-const authMiddleware = require('./middleware/authMiddleware');
+//const authMiddleware = require('./middleware/authMiddleware');
+require('dotenv').config()
 
 const app = express();
 app.use(cors());
@@ -16,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
 // Database connection
-mongoose.connect('mongodb+srv://admin:admin@cluster0.m0jazno.mongodb.net/cgpa-calc?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
