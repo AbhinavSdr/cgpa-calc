@@ -6,6 +6,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/userRoutes');
 const cgpaRoutes = require('./routes/cgpaRoutes');
+const authMiddleware = require('./middleware/authMiddleware');
 
 const app = express();
 app.use(cors());

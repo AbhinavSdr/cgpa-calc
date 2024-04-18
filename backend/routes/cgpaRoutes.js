@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const CGPA = require('../models/CGPA');
-const authMiddleware = require('../middleware/auth');
+const authMiddleware = require('../middleware/authMiddleware');
 
 // Calculate CGPA and save to database
 router.post('/calculate', authMiddleware, async (req, res) => {

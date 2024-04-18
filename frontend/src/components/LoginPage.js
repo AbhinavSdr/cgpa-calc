@@ -18,6 +18,8 @@ function LoginPage() {
       });
       const data = await response.json();
       if (response.ok) {
+        //const { token } = await response.json();
+        sessionStorage.setItem('token', data);
         // Redirect to CGPA calculation page upon successful login
         navigate('/cgpa-calculation');
       } else {
