@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import style from "./style.module.css"
+import { TextField,Button,FormControl } from '@mui/material'
 
 function CGPACalculationPage() {
   const [semesters, setSemesters] = useState(Array(8).fill(''));
@@ -77,15 +79,24 @@ function CGPACalculationPage() {
   };
 
   return (
-    <div>
-      <h1>CGPA Calculation</h1>
-      <p>Enter SGPA of semesters (out of 10)</p>
+    <div id={style.calc}>
+      
+      <h1 style={{color:"white",fontSize:"50px",textShadow:"2px 4px black"}}>CGPA Calculation</h1>
+      <p style={{color:"white",fontSize:"20px",textShadow:"2px 4px black",marginTop:"20px"}}>Enter SGPA of semesters (out of 10)</p>
+      <div id={style.container3}>
       {semesters.map((semester, index) => (
-        <input key={index} type="number" placeholder={`Semester ${index + 1}`} value={semester} onChange={(e) => handleChange(index, e.target.value)} />
+        // <input key={index} type="number" placeholder={`Semester ${index + 1}`} value={semester} onChange={(e) => handleChange(index, e.target.value)} />
+        <TextField key={index} type={Number} placeholder={`Semester ${index + 1}`} value={semester} onChange={(e) => handleChange(index, e.target.value)} id="outlined-basic" sx={{width:"300px",marginTop:"20px",marginLeft:"10px"}} label="" variant="outlined"/>
       ))}
-      <button onClick={handleCalculate}>Calculate</button>
-      <button onClick={handleClear}>Clear</button>
+      {/* <button onClick={handleCalculate}>Calculate</button>
+      <button onClick={handleClear}>Clear</button> */}
+     <div id={style.btnbox}>
+     <Button onClick={handleCalculate} variant="contained" sx={{marginTop:"10px",marginLeft:"1px"}}>Calculate</Button>
+      <Button onClick={handleClear} variant="contained" sx={{marginTop:"10px",marginLeft:"1px"}}>Clear</Button>
+     </div>
       {cgpa && <p>CGPA: {cgpa}</p>}
+      </div>
+      
     </div>
   );
 }
