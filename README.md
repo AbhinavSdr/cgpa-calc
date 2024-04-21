@@ -1,3 +1,3 @@
   CGPA Calculator Website
 
-  Configure the .env file for MongoDB connection before execution
+  Configure the .env file in backend folder for MongoDB connection before execution
